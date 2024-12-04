@@ -16,6 +16,7 @@ struct TopMoviesView: View {
         List {
             ForEach(viewModel.movies) { movie in
                 MovieRow(movie: movie, viewModel: viewModel)
+                    .listRowSeparatorTint(Color(UIColor.lightGray))
                     .contextMenu {
                         Button("Удалить", role: .destructive) {
                             movieToDelete = movie
@@ -51,10 +52,16 @@ struct TopMoviesView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
             }
         }
+        .listStyle(.plain)
         .onAppear {
             Task {
                 await viewModel.fetchTopMovies()
             }
         }
+        .overlay(alignment: .top) {
+                Color.black // Or any view or color
+                    .ignoresSafeArea(edges: .top)
+                    .frame(height: 0)
+            }
     }
 }

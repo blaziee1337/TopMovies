@@ -16,6 +16,7 @@ struct TopMoviesApp: App {
         WindowGroup {
             ContentView()
                 .modelContainer(for: [MovieEntity.self])
+                .preferredColorScheme(.dark)
         }
         
     }
