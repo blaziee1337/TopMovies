@@ -30,6 +30,7 @@ struct MovieRow: View {
                     .cornerRadius(8)
             } else {
                 ProgressView()
+                    .frame(width: 80, height: 120)
                     .onAppear {
                         Task {
                             await loadImage()
