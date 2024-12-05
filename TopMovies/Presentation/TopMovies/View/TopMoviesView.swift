@@ -59,7 +59,7 @@ struct TopMoviesView: View {
             }
         }
         .overlay(alignment: .top) {
-                Color.black // Or any view or color
+                Color.black
                     .ignoresSafeArea(edges: .top)
                     .frame(height: 0)
             }
