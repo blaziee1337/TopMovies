@@ -15,13 +15,13 @@ final class TopMoviesService: TopMoviesServiceProtocol {
     
     private let apiKey = "EFK90N8-ZPB4MZ7-KW670Y4-NXPFGSH"
     private let networkService: NetworkService
-    
+    private let baseURL = "https://api.kinopoisk.dev/v1.4/movie"
     init(networkService: NetworkService) {
         self.networkService = networkService
     }
     
     func fetchMovies(page: Int, limit: Int, sortField: String, sortType: String, type: String) async throws -> [Movie] {
-        var urlComponents = URLComponents(string: "https://api.kinopoisk.dev/v1.4/movie")
+        var urlComponents = URLComponents(string: baseURL)
         urlComponents?.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "limit", value: "\(limit)"),
